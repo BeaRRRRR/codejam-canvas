@@ -5,7 +5,6 @@ body {
 
 header {
   height: 48px;
-  //width: 100%;
   display: flex;
   align-items: center;
   background: #FFFFFF;
@@ -36,7 +35,6 @@ header {
 }
 
 main {
-  //background: #FFFFFF;
   display: flex;
 
   .tools {
@@ -148,10 +146,7 @@ main {
   }
 
   canvas {
-    //margin-top: 79px;
     margin: 79px auto 0;
-    //margin-right: 155px;
-    //margin-left: auto;
     align-self: flex-start;
   }
 
