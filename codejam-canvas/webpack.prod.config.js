@@ -16,14 +16,12 @@ module.exports = {
     },
     target: 'web',
     devtool: 'source-map',
-    // Webpack 4 does not have a CSS minifier, although
-    // Webpack 5 will likely come with one
     optimization: {
         minimizer: [
             new UglifyJsPlugin({
                 cache: true,
                 parallel: true,
-                sourceMap: true // set to true if you want JS source maps
+                sourceMap: true
             }),
             new OptimizeCSSAssetsPlugin({})
         ]
@@ -50,18 +48,18 @@ module.exports = {
                 ],
             },
             {
-                // Loads images into CSS and Javascript files
-                test: /\.jpg$/,
+                // Loads images and svgs into CSS and Javascript files
+                test: /\.(jpg|svg)$/,
                 use: [{loader: 'url-loader'}],
             },
             {
+                // Compiles scss to css and minify's it
                 test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        options: {
-                        },
+                        options: {},
                     },
                     {
                         loader: 'postcss-loader',
@@ -79,10 +77,6 @@ module.exports = {
                         options: {},
                     },
                 ],
-            },
-            {
-                test: /\.svg$/,
-                loader: 'svg-inline-loader'
             },
         ],
     },
